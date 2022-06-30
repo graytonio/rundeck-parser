@@ -7,6 +7,8 @@ import (
 	"os"
 	"regexp"
 	"strings"
+
+	orderedmap "github.com/wk8/go-ordered-map/v2"
 )
 
 var inputFile string
@@ -31,11 +33,10 @@ func main() {
 	errors := parseFile(string(body))
 
 	outputString := ""
-	for key, lines := range errors {
-		// fmt.Printf("\n%s\n", key)
-		outputString += fmt.Sprintf("\n%s\n", key)
-		for _, line := range lines {
-			// fmt.Printf("\t%s\n", line)
+
+	for lines := errors.Oldest(); lines != nil; lines = lines.Next() {
+		outputString += fmt.Sprintf("\n%s\n", lines.Key)
+		for _, line := range lines.Value {
 			outputString += fmt.Sprintf("\t%s\n", line)
 		}
 	}
@@ -50,9 +51,10 @@ func stripLineInfo(line string) string {
 	return res
 }
 
-func parseFile(text string) map[string][]string {
+func parseFile(text string) *orderedmap.OrderedMap[string, []string] {
 	lines := strings.Split(text, "\n")
-	errors := make(map[string][]string)
+	// errors := make(map[string][]string)
+	errors := orderedmap.New[string, []string]()
 
 	var current_task string
 	for _, line := range lines {
@@ -67,7 +69,14 @@ func parseFile(text string) map[string][]string {
 		}
 
 		if strings.Contains(clean_line, "fatal") || strings.Contains(clean_line, "failure") {
-			errors[current_task] = append(errors[current_task], clean_line)
+			// errors[current_task] = append(errors[current_task], clean_line)
+			current_array, present := errors.Get(current_task)
+			if !present {
+				errors.Set(current_task, []string{clean_line})
+			} else {
+				errors.Set(current_task, append(current_array, clean_line))
+			}
+
 		}
 	}
 
