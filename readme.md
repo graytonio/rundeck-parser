@@ -7,7 +7,7 @@ An easier way to extract errors from rundeck jobs.
 ### **Before**
 
 ```
-15:32:45 [rundeck@runner 2][NORMAL] TASK [Fail if server version does not match Veritas version information] *******
+15:32:45 [rundeck@runner 2][NORMAL] TASK [Fail if server version does not match] *******
 15:32:45 [rundeck@runner 2][NORMAL] Wednesday 29 June 2022  10:32:45 -0500 (0:00:00.857)       0:00:13.338 ********
 15:32:46 [rundeck@runner 2][NORMAL] skipping: [server-0]
 15:32:46 [rundeck@runner 2][NORMAL] skipping: [server-1]
@@ -15,7 +15,7 @@ An easier way to extract errors from rundeck jobs.
 15:32:46 [rundeck@runner 2][NORMAL] skipping: [server-3]
 15:32:46 [rundeck@runner 2][NORMAL] skipping: [server-4]
 15:32:46 [rundeck@runner 2][NORMAL]
-15:32:46 [rundeck@runner 2][NORMAL] TASK [Fail if server hostname does not match Veritas hostname] *****************
+15:32:46 [rundeck@runner 2][NORMAL] TASK [Fail if server hostname does not match] *****************
 15:32:46 [rundeck@runner 2]
 .
 .
