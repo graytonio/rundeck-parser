@@ -1,5 +1,7 @@
 # mR Parser
 
+[![Test Code](https://github.com/graytonio/mr-parser/actions/workflows/test_code.yml/badge.svg)](https://github.com/graytonio/mr-parser/actions/workflows/test_code.yml)
+
 An easier way to extract errors from rundeck jobs.
 
 ### **Before**
