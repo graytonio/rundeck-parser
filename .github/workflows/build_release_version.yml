@@ -2,7 +2,7 @@ name: Build Release Binary
 
 on:
   release:
-    types: [created]
+    types: [published]
 
 jobs:
   build-go-binary:
