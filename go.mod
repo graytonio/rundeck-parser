@@ -1,4 +1,4 @@
-module github.com/graytonio/mr-parser
+module github.com/graytonio/rundeck-parser
 
 go 1.18
 
