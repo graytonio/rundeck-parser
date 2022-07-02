@@ -47,4 +47,8 @@ TASK [run script at the agencies] *********************************
 
 ## Installation
 
+### **Easy Install**
+
+`curl https://raw.githubusercontent.com/graytonio/rundeck-parser/main/install.sh | sudo bash`
+
 The binary can be downloaded from the releases page for the latest stable version or you can compile the code yourself for the latest version.
